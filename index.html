@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarizer</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #0077cc;
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* Form Container */
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            background-color: #f8f9fa;
+            transition: border-color 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #0077cc;
+        }
+
+        input[type="file"] {
+            font-size: 1rem;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="file"]:hover {
+            background-color: #eef2f5;
+        }
+
+        input[type="submit"] {
+            background-color: #0077cc;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005fa3;
+            transform: translateY(-3px);
+        }
+
+        /* Summary Section */
+        div {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        p {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Text Summarizer</h1>
+    <form action="/summarize" method="post" enctype="multipart/form-data">
+        <textarea name="input_text" rows="10" cols="50" placeholder="Paste your text here..."></textarea><br><br>
+        <input type="file" name="input_file"><br><br>
+        <input type="submit" value="Summarize">
+    </form>
+    <div>
+        <h2>Summary</h2>
+        <p>{{ summary }}</p>
+    </div>
+</body>
+
+</html>
